@@ -612,6 +612,8 @@ static NSMutableDictionary* _template = nil;
 - (BOOL) slow: (Hero*) anEnemy
        chance: (double) chance
 {
+	if( drand48() > chance ) return NO;
+
 	BOOL success = [ anEnemy makeSlower ];
 
 	if( do_battle_log && success )
