@@ -1243,6 +1243,12 @@ receiveDrain:
 	[ self bloodMageGain: anAction ];
 }
 
+- (double) stunResistanceGainFor: (Hero*)aHero
+{
+	return 1.0;
+}
+
+
 @end
 
 @implementation Action_DD
