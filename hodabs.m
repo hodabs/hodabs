@@ -197,14 +197,6 @@ static NSMutableDictionary* _template = nil;
 		target.action.power = -[ action attackPowerTo: target ];
 	}
 
-	/* Tell everybody including the attacking hero that we are attacking.
-	 * They may also alter the action's power at this point
-	 */
-	for(Hero* hero in self.members )
-	{
-		[ hero.action prepareAttack: action ];
-	}
-
 	if( do_battle_log )
 		NSLog(@"%@ (%.1f:p) is attacking (%@%@)", action.hero.name, action.power,
 			action.hero.order < SPEED_NORMAL ? @"FAST" :
@@ -493,7 +485,7 @@ static NSMutableDictionary* _template = nil;
 		abs_dmg[ idx ][ l ] = 0;
 	}
 
-	/* Let everybody prepare the initial damage */
+	/* Let everybody prepare the initial damage, applying battle time aura factors */
 	for(Hero* hero in self.members )
 	{
 		[ hero.action prepareDamage: attack ];
@@ -508,6 +500,11 @@ static NSMutableDictionary* _template = nil;
 			//Restore old value back so all freinds see the same base.
 			target.action.power = org_dmg[ idx ][ l ];
 		}
+	}
+
+	for(Hero* hero in self.members )
+	{
+		[ hero.action applyDamage: attack ];
 	}
 
 	/* Applying the new power set as actual damage */
@@ -790,11 +787,11 @@ static NSMutableDictionary* _template = nil;
 
 }
 
-- (void) prepareAttack: (Action*) anAction
+- (void) prepareDamage: (Action*) anAction
 {
 }
 
-- (void) prepareDamage: (Action*) anAction
+- (void) applyDamage: (Action*) anAction
 {
 }
 
@@ -803,6 +800,12 @@ static NSMutableDictionary* _template = nil;
 }
 
 /* Random a power based on current power and critical status */
+- (double) attackPower: (double) power
+		    by: (Hero*) attacker
+{
+	return power;
+}
+
 - (double) attackPowerTo: (Hero*)target
 {
 	double powerForTarget = _critical ? _power * 2 :
@@ -816,7 +819,8 @@ static NSMutableDictionary* _template = nil;
 	if( self.hero.isGreyWarden && target.isBlighted )
 		powerForTarget *= 1.5;
 
-	return powerForTarget;
+	return [ target.action attackPower: powerForTarget
+					by: self.hero ];
 }
 
 - (void) grantPowerToAll: (double) gainPower
@@ -1322,15 +1326,17 @@ receiveDrain:
 	[ self bloodMageGain: anAction ];
 }
 
-- (void) prepareDamage: (Action*) anAction
+- (double) attackPower: (double) power
+		    by: (Hero*) attacker
 {
-	if([ anAction.targets containsObject: self.hero ] && anAction.hero.isBlack )
+	if( attacker.isBlack )
 	{
-		if(do_battle_log) NSLog(@"AJ reduce black damage ");
-		self.power *= 0.9;
+		if(do_battle_log) NSLog(@".... AJ is reducing black damage ");
+		power *= 0.9;
 	}
-}
 
+	return power;
+}
 
 @end
 
@@ -1625,18 +1631,41 @@ receiveDrain:
 
 - (void) prepareDamage: (Action*) anAction
 {
-	[ super prepareDamage: anAction ];
+	BOOL isDef = NO;
 
-	/* Testing Absorb */
+	for(Hero* hero in anAction.targets )
+	{
+		if([ self.hero isAlly: hero ] && self.hero != hero )
+		{
+			double prevPower = self.power;
+
+			self.power += hero.action.power / 2.0;
+			hero.action.power /= 2.0;
+			if( do_battle_log )
+			{
+				if( isDef == NO )
+				{
+					NSLog(@".... %@ is defending.", self.hero.name);
+					isDef = YES;
+				}
+				NSLog(@"...... %@ [%.1f → %.1f]:p", hero.name, prevPower, self.power);
+			}
+		}
+	}
+}
+
+- (void) applyDamage: (Action*) anAction
+{
 	for(Hero* hero in anAction.targets )
 	{
 		if([ self.hero isAlly: hero ])
 		{
-			self.action.power += hero.action.power / 2.0;
+			self.power += hero.action.power / 2.0;
 			hero.action.power /= 2.0;
 		}
 	}
 }
+
 
 @end
 

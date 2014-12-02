@@ -248,11 +248,20 @@ typedef enum : NSUInteger
  */
 - (double) attackPowerTo: (Hero*)target;
 
-// Attacking team members may override this to join the attack.
-- (void) prepareAttack: (Action*) anAttack;
-// Target's friends may override this to reduce the damage.
+/* called by -attackPowerTo:, a particular target may override to alter the final power. */
+- (double) attackPower: (double) power
+		    by: (Hero*) attacker;
+
+// Global notification. anyone may override this to alter the damaging power values.
 - (void) prepareDamage: (Action*) anAttack;
-// Target's friends may override this to learn about the result of the damage.
+
+/* Attack time notification, allow just in time unordered manipulations
+ * of power values without any stack calculation. Mainly for defenders.
+ */
+
+- (void) applyDamage: (Action*) anAction;
+
+// Global notification. anyone may override this to alter the damaging power values.
 - (void) finalizeDamage: (Action*) anAttack;
 
 - (void) bloodMageGain: (Action*) anAttack;
