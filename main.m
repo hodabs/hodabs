@@ -69,15 +69,9 @@ int main(int argc, const char * argv[])
 //			[ Hero summon:@"Morrigan" ],
 //			[ Hero summon:@"Morrigan" ],
 			[ Hero summon:@"MyJowan" ],
-<<<<<<< HEAD
 			[ Hero summon:@"MyMorrigan" ],
 			[ Hero summon:@"MyMorrigan" ],
 			[ Hero summon:@"MyMorrigan" ],
-=======
-			[ Hero summon:@"Morrigan" ],
-			[ Hero summon:@"Morrigan" ],
-			[ Hero summon:@"Morrigan" ],
->>>>>>> 5479a6c0b92818b5f21dc317418c9cbfb7431ee3
 //			[ Hero summon:@"Morrigan" ],
 //			[ Hero summon:@"Morrigan" ],
 //			[ Hero summon:@"Morrigan" ],
