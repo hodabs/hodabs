@@ -1231,6 +1231,13 @@ receiveDrain:
 
 @implementation Action_Dan
 
+- (void) attack
+{
+	[ super attack ];
+	[ self slowTargets: self.targets
+		withChance: CHANCE_SMALL ];
+}
+
 - (void) finalizeDamage: (Action*) anAction
 {
 	[ self bloodMageGain: anAction ];
