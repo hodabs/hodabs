@@ -368,6 +368,8 @@ static NSMutableDictionary* _template = nil;
 
 - (NSUInteger) run
 {
+	_round = 0;
+
 	_damageBy1 = 0;
 	_damageBy2 = 0;
 
@@ -1247,7 +1249,9 @@ receiveDrain:
 
 - (double) stunResistanceGainFor: (Hero*)aHero
 {
-	return 1.0;
+	if( aHero == self.hero )
+		return 1.0;
+	return 0.0;
 }
 
 
