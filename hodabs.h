@@ -330,18 +330,6 @@ typedef enum : NSUInteger
 */
 @end
 
-@interface AoEAction : Action
-@end
-
-@interface DoubleAction : Action
-@end
-
-@interface RowAction : DoubleAction
-@end
-
-@interface ColAction : DoubleAction
-@end
-
 /* Template datas */
 #define DATA_POWER 0
 #define DATA_HEALTH 1

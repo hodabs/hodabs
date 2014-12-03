@@ -9,6 +9,12 @@
 #define CHANCE_HIGH 0.75
 #define CHANCE_FULL 1.0
 
+@interface MultipleAction : Action @end
+@interface AoEAction : MultipleAction @end
+@interface DoubleAction : MultipleAction @end
+@interface RowAction : DoubleAction @end
+@interface ColAction : DoubleAction @end
+
 @interface Action_AD : Action @end
 @interface Action_AJ : RowAction @end
 @interface Action_Archy : Action @end
@@ -766,7 +772,9 @@ static NSMutableDictionary* _template = nil;
 		membersAtPositions:[ self positionTargetsWithChances: NULL ]];
 
 	// Initialize base action power
+	// It seems that AoE attack based on single value so let's calculate it here.
 	_power = _hero.power;
+	_power *= _critical ? 2 : 1 + ( drand48()/2 - 0.25 );
 
 	[ self.hero.team attackWithAction: self ];
 
@@ -812,8 +820,7 @@ static NSMutableDictionary* _template = nil;
 
 - (double) attackPowerTo: (Hero*)target
 {
-	double powerForTarget = _critical ? _power * 2 :
-		_power + _power * ( drand48()/2 - 0.25 );
+	double powerForTarget = _power;
 
 	if([_hero isCrossing: target ])
 	{
@@ -894,6 +901,9 @@ static NSMutableDictionary* _template = nil;
 				 byHero: anAttack.hero ];
 }
 
+@end
+
+@implementation MultipleAction
 @end
 
 @implementation DoubleAction
@@ -1630,11 +1640,6 @@ receiveDrain:
 {
 	if( self.hero.team == aHero.team && aHero.isApostate ) return aHero.base_power * 0.50;
 	else return 0;
-}
-
-- (double) attackPowerTo: (Hero*)target
-{
-	return [ super attackPowerTo: target ];
 }
 
 @end
