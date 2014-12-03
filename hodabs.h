@@ -245,10 +245,15 @@ typedef enum : NSUInteger
 
 /* Random a power based on current power and critical status.
    Subclass may override to multiply factors to the initial power.
+
+   For general targets eg. grey warden vs blighted or RLM vs mages.
  */
 - (double) attackPowerTo: (Hero*)target;
 
-/* called by -attackPowerTo:, a particular target may override to alter the final power. */
+/* called by -attackPowerTo:, a particular target may override to alter the final power.
+
+   For specific target eg. mages vs RLM.
+ */
 - (double) attackPower: (double) power
 		    by: (Hero*) attacker;
 
