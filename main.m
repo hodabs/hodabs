@@ -123,19 +123,22 @@ int main(int argc, const char * argv[])
 
 
 //Speed rune test
-/*
+#if 0
 	for(int i = 0; i < 5; i++)
 	{
-		Team* team = battle_field.teams[0];
+		Team* team = battle_field.teams[1];
 		Hero* h = team[i];
-		h.speed--;
+		if( h != NOHERO )
+			h.speed -= 2;
 	}
-	*/
+#endif
 
 	int ab[2] = {0,0};
 	for(int i = 0; i < run; i++)
 	{
 		ab[[ battle_field run ]]++;
+		if( do_battle_log )
+			NSLog(@"___________________________________________________");
 	}
 
 	NSLog(@"Winning: A:%.0f%% vs B:%.0f%%",
