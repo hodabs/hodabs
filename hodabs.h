@@ -7,7 +7,7 @@
 
 #define MAX_UNIT 5
 extern BOOL do_battle_log;
-@interface BLOG : NSObject
+@interface BLog : NSObject
 + (void) format: (NSString*) format, ...;
 + (void) setLog: (BOOL) onOff;
 + (NSUInteger) flush;
