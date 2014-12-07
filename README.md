@@ -33,3 +33,15 @@
 
   0. You just DO WHAT THE FUCK YOU WANT TO.
 
+----------------------------------------------------------------------
+  References
+----------------------------------------------------------------------
+
+* [Flemeth] (http://forums.capitalgames.com/showthread.php/71574?p=1341776&viewfull=1#post1341776)
+* [Defending Aura] (http://forums.capitalgames.com/showthread.php/71069)
+* [VT Buffing] (http://forums.capitalgames.com/showthread.php/72073?p=1348993&viewfull=1#post1348993)
+* [Gain on receiving damage.] (http://forums.capitalgames.com/showthread.php/69744)
+* [Some note on self-inflicting dmg.] (http://forums.capitalgames.com/showthread.php/72003?p=1347711&viewfull=1#post1347711)
+* [Blood mage mechanics] (http://forums.capitalgames.com/showthread.php/71908?p=1345848&viewfull=1#post1345848)
+* [A recent study about how blood mage gain actually work] (http://forums.capitalgames.com/showthread.php/72170)
+* [KM,AD] (forums.capitalgames.com/showthread.php/72602)
