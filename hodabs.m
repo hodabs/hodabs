@@ -1754,7 +1754,7 @@ receiveDrain:
 
 @end
 
-@implementation BLOG
+@implementation BLog
 
 static NSMutableArray* logBuffer = nil;
 static BOOL doLog = NO;
@@ -1766,6 +1766,8 @@ static BOOL doLog = NO;
 
 + (void) format: (NSString*) format, ...;
 {
+	if( !doLog ) return;
+
 	va_list ap;
 	va_start(ap, format);
 
@@ -1783,7 +1785,8 @@ static BOOL doLog = NO;
 {
 	if( logBuffer.count > 0 )
 	{
-		NSLog(@"%@", logBuffer[0]);
+		if( doLog )
+			NSLog(@"%@", logBuffer[0]);
 		[ logBuffer removeObjectAtIndex: 0 ];
 	}
 	return logBuffer.count;
