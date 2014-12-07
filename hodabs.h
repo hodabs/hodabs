@@ -7,6 +7,15 @@
 
 #define MAX_UNIT 5
 extern BOOL do_battle_log;
+@interface BLOG : NSObject
++ (void) format: (NSString*) format, ...;
++ (void) setLog: (BOOL) onOff;
++ (NSUInteger) flush;
+/*
++ (void) save;
++ (void) restore;
+*/
+@end
 
 typedef enum : NSUInteger
 {

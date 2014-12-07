@@ -1754,3 +1754,39 @@ receiveDrain:
 
 @end
 
+@implementation BLOG
+
+static NSMutableArray* logBuffer = nil;
+static BOOL doLog = NO;
+
++ (void) initialize
+{
+	logBuffer = [ NSMutableArray new ];
+}
+
++ (void) format: (NSString*) format, ...;
+{
+	va_list ap;
+	va_start(ap, format);
+
+	[ logBuffer addObject:[ NSString stringWithFormat: format
+						arguments: ap ]];
+	va_end(ap);
+}
+
++ (void) setLog: (BOOL) onOff
+{
+	doLog = onOff;
+}
+
++ (NSUInteger) flush
+{
+	if( logBuffer.count > 0 )
+	{
+		NSLog(@"%@", logBuffer[0]);
+		[ logBuffer removeObjectAtIndex: 0 ];
+	}
+	return logBuffer.count;
+}
+
+@end
