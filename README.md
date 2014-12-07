@@ -45,3 +45,23 @@
 * [Blood mage mechanics] (http://forums.capitalgames.com/showthread.php/71908?p=1345848&viewfull=1#post1345848)
 * [A recent study about how blood mage gain actually work] (http://forums.capitalgames.com/showthread.php/72170)
 * [KM,AD] (http://forums.capitalgames.com/showthread.php/72602)
+
+
+----------------------------------------------------------------------
+  Hall of Fame, Thanks!
+----------------------------------------------------------------------
+
+## A short list of nice people I found their contributions only in the area of game mechanics alone. There are also the others those contribute in other important areas like strategy, update, etc.
+
+* Ease
+* Harold, Death's Herald
+* January
+* JohnnySteel Alpha (aka JSA)
+* Ju Chen
+* KFN
+* LittleBlackJoe
+* MAM_HoDA
+* NGcoug
+* Pe Wa
+* Sarcodino
+* The_Dude ★
