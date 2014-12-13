@@ -6,6 +6,10 @@
   Announcements
 ----------------------------------------------------------------------
 
+* Reports folder has been started.
+
+* Thinking of quitting due to this KM thing. Sooner or later.
+
 * KFN insulted The Almighty Fashion so much and be banned
   and decided not to get back to the forum.
 
@@ -14,6 +18,17 @@
   response the project will do at his best to update with
   the requested reports and will be made avaiable as a part
   of the source tree.
+
+----------------------------------------------------------------------
+  TODO
+----------------------------------------------------------------------
+
+  1. Generalize fortifaction.
+  2. Taunt
+  3. Flemeth
+  4. Make a public doc so anyone can put their teams and they will
+     periodically be tested and published.
+
 
 ----------------------------------------------------------------------
   Licence
