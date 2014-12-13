@@ -1304,6 +1304,17 @@ receiveDrain:
 	else return 0;
 }
 
+- (void) prepareDamage: (Action*) anAction
+{
+	for(Hero* hero in anAction.targets )
+	{
+		if([ self.hero isAlly: hero ] && hero.isElf )
+		{
+			hero.action.power *= 0.9;
+		}
+	}
+}
+
 @end
 
 @implementation Action_Merrill
