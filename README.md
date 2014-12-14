@@ -6,9 +6,15 @@
   Announcements
 ----------------------------------------------------------------------
 
-* Reports folder has been started.
-
 * Thinking of quitting due to this KM thing. Sooner or later.
+  Not that because I think 10% isn't right. I have 4 KMs but
+  never leg-fort my health slots because I feel 20% is broken
+  in the sense that they will not be able to have an LC that
+  does 20% DR for allies, even an ultra rare one. The stats
+  are never be the problem, the problem is they treat the
+  community with bad faith.
+
+* Reports folder has been started.
 
 * KFN insulted The Almighty Fashion so much and be banned
   and decided not to get back to the forum.
