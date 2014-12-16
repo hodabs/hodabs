@@ -12,7 +12,7 @@
   in the sense that they will not be able to have an LC that
   does 20% DR for allies, even an ultra rare one. The stats
   are never be the problem, the problem is they treat the
-  community with <del>bad</del>ill faith.
+  community with <del>bad</del> ill faith.
 
 * Reports folder has been started.
 
