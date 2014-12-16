@@ -32,7 +32,10 @@
   1. Generalize fortifaction.
   2. Taunt
   3. Flemeth
-  4. Make a public doc so anyone can put their teams and they will
+  4. Fixing defender.. I admit I hate working with this poorly
+     implemented mechanics, breaking with BM and etc. It feels
+     just sad to implement broken things with good code.
+  5. Make a public doc so anyone can put their teams and they will
      periodically be tested and published.
 
 
