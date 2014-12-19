@@ -586,6 +586,11 @@ static NSMutableDictionary* _template = nil;
 	return 0.0;
 }
 
+- (double) curseResistanceGainFor: (Hero*)aHero
+{
+	return 0.0;
+}
+
 - (double) stunResistanceGainFor: (Hero*)aHero
 {
 	return 0.0;
@@ -1123,6 +1128,20 @@ static NSMutableSet* hero_props = nil;
 
 	_stunned = NO;
 	_slowness = 0;
+}
+
+- (BOOL) makeCursed
+{
+	if( _health < 0 ) return NO;
+
+	if( drand48() > self.curseResistance )
+	{
+		_power = _base_power;
+		_cursed = YES;
+		return YES;
+	}
+
+	return YES;
 }
 
 - (BOOL) makeStunned

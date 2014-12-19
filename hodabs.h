@@ -173,6 +173,7 @@ typedef enum : NSUInteger
 @property double base_health;
 @property double criticalChance;
 
+@property double curseResistance;
 @property double drainResistance;
 @property double stunResistance;
 @property double slowResistance;
@@ -185,6 +186,7 @@ typedef enum : NSUInteger
 @property double order;
 @property NSUInteger slowness;
 @property (getter=isStunned) BOOL stunned;
+@property (getter=isCursed) BOOL cursed;
 
 @property (readonly) BOOL isDead;
 
@@ -234,6 +236,7 @@ typedef enum : NSUInteger
 - (void) fire;
 - (BOOL) makeSlower; //FIXME define degree of slowness
 - (BOOL) makeStunned;
+- (BOOL) makeCursed;
 - (double) drainedWithPower: (double) drainPower;
 - (void) refresh;
 - (void) applyPower: (double) addPower; //Minus to drain
@@ -321,9 +324,10 @@ typedef enum : NSUInteger
 - (double) powerGainFor: (Hero*) aHero;
 - (double) healthGainFor: (Hero*) aHero;
 
+- (double) curseResistanceGainFor: (Hero*)aHero;
+- (double) drainResistanceGainFor: (Hero*)aHero;
 - (double) stunResistanceGainFor: (Hero*)aHero;
 - (double) slowResistanceGainFor: (Hero*)aHero;
-- (double) drainResistanceGainFor: (Hero*)aHero;
 
 /*
 - (double) defend: (Hero*) aHero
