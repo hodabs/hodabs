@@ -389,7 +389,7 @@ static NSMutableDictionary* _template = nil;
 
 	NSUInteger round;
 	do {
-		round = [ self _runBattle ];
+		round = [ self _runRound ];
 
 		_damageBy1 += _team1.roundDamage;
 		_damageBy2 += _team2.roundDamage;
@@ -414,7 +414,7 @@ static NSMutableDictionary* _template = nil;
 }
 
 #define MAXROUND 10
-- (NSUInteger) _runBattle
+- (NSUInteger) _runRound
 {@autoreleasepool{
 
 	Hero* h;
@@ -424,6 +424,12 @@ static NSMutableDictionary* _template = nil;
 	if( do_battle_log ) NSLog(@"<Round %d>",_round);
 	_team1.roundDamage = 0;
 	_team2.roundDamage = 0;
+
+	/* Reset curse at the beginning of the new round */
+	for( Hero* h in allHeroes )
+	{
+		h.cursed = NO;
+	}
 
 	while( allHeroes.count  )
 	{
