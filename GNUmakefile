@@ -9,6 +9,6 @@ TOOL_NAME = HODABS
 
 ${TOOL_NAME}_OBJCFLAGS = -fobjc-arc
 ${TOOL_NAME}_BUNDLE_LIBS += -lobjc -lgnustep-base
-${TOOL_NAME}_OBJC_FILES = main.m hodabs.m
+${TOOL_NAME}_OBJC_FILES = main.m hodabs.m actions.m
 
 include $(GNUSTEP_MAKEFILES)/tool.make
