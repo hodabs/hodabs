@@ -396,17 +396,21 @@ static NSMutableDictionary* _template = nil;
 
 	} while( round );
 
+	double sumBaseHP[2] = { 0, 0 };
+	double sumHP[2] = { 0, 0 };
+
 	for(Hero* hero in self.members )
 	{
-		if(hero.health > 0 )
-		{
-			if (hero.team == _team1)
-				return 0;	//1 WIN
-			else return 1;		//2 WIN
-		}
+		int ti = hero.team == _team1 ? 0 : 1;
+		sumHP[ti] += hero.health;
+		sumBaseHP[ti] += hero.base_health;
 	}
 
-	return NSNotFound;
+	/* FIXME Does winning based on % left? */
+	sumHP[0] /= sumBaseHP[0];
+	sumHP[1] /= sumBaseHP[1];
+
+	return sumHP[0] > sumHP[1] ? 0 : 1;
 }
 
 #define MAXROUND 10
