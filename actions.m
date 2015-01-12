@@ -203,6 +203,18 @@
 	}
 }
 
+- (void) curseTargets: (NSArray*) heroList
+	   withChance: (double) curseChance
+{
+	for(Hero* foe in heroList )
+	{
+		if( foe.health > 0 )
+		{
+			[ foe makeCursed ];
+		}
+	}
+}
+
 - (void) attack
 {
 	// If it crits, all critted so let's decide here.
@@ -1218,4 +1230,56 @@ receiveDrain:
 		withChance: CHANCE_FULL ];
 }
 
+@end
+
+@implementation Action_Tallis
+- (double) powerGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team && aHero.isQunari ) return aHero.base_power * 0.50;
+	else return 0;
+}
+
+- (void) attack
+{
+	[ super attack ];
+	[ self stunTargets: self.targets
+		withChance: CHANCE_SMALL ];
+}
+@end
+
+@implementation Action_GWS
+- (void) attack
+{
+	[ super attack ];
+	[ self curseTargets: self.targets
+		 withChance: CHANCE_FULL ];
+}
+@end
+
+@implementation Action_WCD
+
+- (double) powerGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team && aHero.isRogue) return aHero.base_power * 0.25;
+	else return 0;
+}
+
+- (Positions) positionTargetsWithChances: (const double[MAX_UNIT])posChances;
+{
+	double chances[] = { 0.1, 0.1, 0.1, 1.0, 1.0 };
+	return [ super positionTargetsWithChances: chances ];
+}
+
+//Gain power
+
+@end
+
+@implementation Action_EH
+- (double) powerGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team && ( aHero.isRogue || aHero.isOrlesian )) return aHero.base_power * 0.25;
+	else return 0;
+}
+
+//> ferelden + qunari
 @end

@@ -5,6 +5,11 @@
 #define INITIAL_SCORE 1500
 #define AVERAGE_FACTOR 2.0
 
+@interface Player
+@property Team* defender;
+@property Team* attacker;
+@end
+
 NYI
 {
 	NSMutableArray* teamList = [ NSMutableArray array ];

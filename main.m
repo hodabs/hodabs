@@ -12,6 +12,7 @@ int main(int argc, const char * argv[])
 
 	[ HeroTemplate append:
 @{
+@"MyVart" :		@[@1000, @1665, @100, ACT(Vart), @"epic,giant,fast,spirit,creature" ],
 @"MyMorrigan" :		@[@3486 , @8573, @25, ACT(Morrigan), @"leg,red,slow,apostate,mage" ],
 @"MyJowan" :		@[@3702, @14232, @25, ACT(AJ), @"leg,red,black,slow,apostate,bloodMage,mage" ],
 @"MyUldred" :		@[@(3702), @(20396), @25, ACT(Uldred), @"leg,slow,blue,black,mage,bloodMage" ],
@@ -49,36 +50,28 @@ int main(int argc, const char * argv[])
 //			[ Hero summon:@"Varterral" ],
 //			NOHERO,
 
-//			[ Hero summon:@"Ancient Darkspawn" ],
-//			[ Hero summon:@"Ancient Darkspawn" ],
-//			[ Hero summon:@"Ancient Darkspawn" ],
+//			[ Hero summon:@"Grey Warden Carver" ],
+//			[ Hero summon:@"Grey Warden Carver" ],
+//			[ Hero summon:@"Grey Warden Carver" ],
 //			[ Hero summon:@"Ancient Darkspawn" ],
 //			[ Hero summon:@"Grand Enchanter Fiona" ],
-//			[ Hero summon:@"Desire Demon" ],
 //			[ Hero summon:@"Desire Demon" ],
 //			[ Hero summon:@"Grey Warden Bethany" ],
 //			[ Hero summon:@"Isabela" ],
 //			[ Hero summon:@"Apostate Jowan" ],
-//			[ Hero summon:@"Apostate Jowan" ],
-//			[ Hero summon:@"Danarius" ],
-//			[ Hero summon:@"Morrigan" ],
+//			[ Hero summon:@"Keeper Marethari" ],
+//			[ Hero summon:@"Witherfang" ],
+			[ Hero summon:@"Grey Warden Sigrun" ],
+			[ Hero summon:@"Grey Warden Sigrun" ],
+			[ Hero summon:@"Grey Warden Sigrun" ],
+			[ Hero summon:@"Sigrun" ],
+//			[ Hero summon:@"Tallis" ],
 //			[ Hero summon:@"Desire Demon" ],
 //			[ Hero summon:@"Velanna" ],
-//			[ Hero summon:@"Apostate Jowan" ],
-//			[ Hero summon:@"Apostate Jowan" ],
+//			[ Hero summon:@"Velanna" ],
+//			[ Hero summon:@"Velanna" ],
+//			[ Hero summon:@"Danarius" ],
 //			[ Hero summon:@"Morrigan" ],
-//			[ Hero summon:@"Morrigan" ],
-			[ Hero summon:@"MyJowan" ],
-			[ Hero summon:@"MyMorrigan" ],
-			[ Hero summon:@"MyMorrigan" ],
-			[ Hero summon:@"MyMorrigan" ],
-//			[ Hero summon:@"Morrigan" ],
-//			[ Hero summon:@"Morrigan" ],
-//			[ Hero summon:@"Morrigan" ],
-//			[ Hero summon:@"Keeper Marethari" ],
-//			[ Hero summon:@"Keeper Marethari" ],
-//			[ Hero summon:@"Keeper Marethari" ],
-//			[ Hero summon:@"Keeper Marethari" ],
 //			[ Hero summon:@"Leliana" ],
 //			[ Hero summon:@"Morrigan" ],
 //			[ Hero summon:@"Sigrun" ],
@@ -91,10 +84,17 @@ int main(int argc, const char * argv[])
 //			[ Hero summon:@"MyVT" ],
 		],
 		@[ // Team B
-//			[ Hero summon:@"Varterral" ],
+//			[ Hero summon:@"MyVart" ],
 //			NOHERO,
 //			[ Hero summon:@"Uldred" ],
 //			[ Hero summon:@"The Architect" ],
+
+//			[ Hero summon:@"Dragon Flemeth" ],
+//			[ Hero summon:@"Apostate Jowan" ],
+//			NOHERO,
+//			NOHERO,
+//			NOHERO,
+//			NOHERO,
 
 #if 0
 			[ Hero summon:@"Dragon Flemeth" ],
@@ -103,9 +103,16 @@ int main(int argc, const char * argv[])
 			[ Hero summon:@"Witherfang" ],
 			[ Hero summon:@"Witherfang" ],
 #endif
+#if 0
+			[ Hero summon:@"Harvester Orsino" ],
+			[ Hero summon:@"Uldred" ],
+			[ Hero summon:@"Uldred" ],
+			[ Hero summon:@"Vengeance Anders" ],
+			[ Hero summon:@"Vengeance Anders" ],
+#endif
 #if 1
 			[ Hero summon:@"Harvester Orsino" ],
-			[ Hero summon:@"MyUldred" ],
+			[ Hero summon:@"Danarius" ],
 			[ Hero summon:@"Vengeance Anders" ],
 			[ Hero summon:@"Vengeance Anders" ],
 			[ Hero summon:@"Vengeance Anders" ],
@@ -126,10 +133,10 @@ int main(int argc, const char * argv[])
 #if 0
 	for(int i = 0; i < 5; i++)
 	{
-		Team* team = battle_field.teams[1];
+		Team* team = battle_field.teams[0]; //team
 		Hero* h = team[i];
 		if( h != NOHERO )
-			h.speed -= 2;
+			h.speed -= 1; //rune count
 	}
 #endif
 

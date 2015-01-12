@@ -330,7 +330,6 @@ static NSMutableDictionary* _template = nil;
 		/* back row crit bonus */
 		h.criticalChance *= ((1 << h.location) & POS_B ? 2.0 : 1.0 );
 
-
 		[ h refresh ];
 //#ifdef BATTLELOG
 		NSLog(@"= %@", h);
