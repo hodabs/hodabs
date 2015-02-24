@@ -140,3 +140,5 @@
 @interface Action_GWS : RowAction @end
 @interface Action_WCD : Action @end
 @interface Action_EH : RowAction @end
+@interface Action_CZ : RowAction @end
+@interface Action_Phoenix : AoEAction @end

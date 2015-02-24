@@ -747,6 +747,12 @@ receiveDrain:
 
 @implementation Action_GEF
 
+- (double) powerGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team && aHero.isCircle) return aHero.base_power * 0.35;
+	else return 0;
+}
+
 - (void) attack
 {
 	[ super attack ];
@@ -1254,6 +1260,13 @@ receiveDrain:
 	[ self curseTargets: self.targets
 		 withChance: CHANCE_FULL ];
 }
+
+- (Positions) positionTargetsWithChances: (const double[MAX_UNIT])posChances;
+{
+	double chances[] = { 0.1, 0.1, 0.1, 1.0, 1.0 };
+	return [ super positionTargetsWithChances: chances ];
+}
+
 @end
 
 @implementation Action_WCD
@@ -1283,3 +1296,48 @@ receiveDrain:
 
 //> ferelden + qunari
 @end
+
+@implementation Action_CZ
+
+- (Positions) positionTargetsWithChances: (const double[MAX_UNIT])posChances;
+{
+	double chances[] = { 0.1, 0.1, 0.1, 1.0, 1.0 };
+	return [ super positionTargetsWithChances: chances ];
+}
+
+- (void) attack
+{
+	[ super attack ];
+	//FIXME drain a lot
+	[ self drainTargets: self.targets
+		 withChance: CHANCE_FULL ];
+	[ self drainTargets: self.targets
+		 withChance: CHANCE_FULL ];
+}
+@end
+
+@implementation Action_Phoenix
+
+- (double) healthGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team ) return aHero.base_health * 0.20;
+	else return 0;
+}
+
+- (double) stunResistanceGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team ) return 0.15;
+	return 0;
+}
+
+- (void) attack
+{
+	//FIXME not sure where healing power is coming from. looks like a reroll
+	[ super attack ];
+
+	[ self.hero applyHealth: self.power
+			 byHero: self.hero ];
+}
+
+@end
+
