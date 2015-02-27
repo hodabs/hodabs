@@ -142,3 +142,4 @@
 @interface Action_EH : RowAction @end
 @interface Action_CZ : RowAction @end
 @interface Action_Phoenix : AoEAction @end
+@interface Action_Ben : AoEAction @end

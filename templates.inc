@@ -1,5 +1,6 @@
 //				P	H + FORT
-//Primary units with no fortication
+//Some units are with no fortication
+//Newer updates are full fort
 @"Danarius" :			@[@5504, @20583, @25, ACT(Dan), @"leg,black,white,normal,bloodMage,mage,tevinter" ],
 @"Dragon Flemeth" :		@[@8449, @30882, @25, ACT(DF), @"leg,giant,slow,apostate,mage,creature" ],
 @"Elite Harlequin" :		@[@8774, @10343, @25, ACT(EH), @"leg,fast,white,orlesian,rogue" ],
@@ -7,6 +8,7 @@
 @"Keeper Marethari" :		@[@3416, @9628, @25, ACT(KM), @"leg,blue,normal,circle,apostate,elf,mage" ],
 @"Morrigan" :			@[@5171, @12703, @25, ACT(Morrigan), @"leg,red,slow,apostate,mage" ],
 @"Tallis" :			@[@4825, @10588, @25, ACT(Tallis), @"leg,fast,red,qunari,rogue,elf" ],
+@"Ben-Hassrath" :		@[@2665, @8428, @25, ACT(Ben), @"leg,fast,red,qunari,rogue" ],
 @"Crow Zevran" :		@[@8587, @9332, @25, ACT(CZ), @"leg,fast,red,elf,rogue" ],
 @"Harvester Orsino" :		@[@5850, @20294, @25, ACT(HO), @"leg,giant,slow,bloodMage,circle,demonic" ],
 @"Vengeance Anders" :		@[@4780, @10688, @25, ACT(VA), @"leg,blue,slow,spirit,mage,apostate,greyWarden" ],

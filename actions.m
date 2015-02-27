@@ -1341,3 +1341,13 @@ receiveDrain:
 
 @end
 
+@implementation Action_Ben
+
+- (double) healthGainFor: (Hero*)aHero
+{
+	if( self.hero.team == aHero.team && aHero.isQunari ) return aHero.base_health * 0.25;
+	else return 0;
+}
+
+@end
+
